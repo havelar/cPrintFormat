@@ -2,6 +2,12 @@
 __pycache__/
 *.py[cod]
 
+# VS Code debug files
+.vscode/*
+
+# My test file
+test.py
+
 # C extensions
 *.so
 
