@@ -1,4 +1,4 @@
-from cprint import cprint
+from . import cprint
 
 class cPrintClass:
     def __init__(self, color='black', bg=None, style='normal', end='\n'):
