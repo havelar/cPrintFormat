@@ -6,7 +6,7 @@ __pycache__/
 .vscode/*
 
 # My test file
-test.py
+example.py
 
 # C extensions
 *.so
