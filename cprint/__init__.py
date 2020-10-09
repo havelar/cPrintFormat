@@ -1,3 +1,5 @@
+import inspect
+
 from .cPrint import cprint
 from .cClass import cPrintClass
 
@@ -38,3 +40,17 @@ def cPrint(text, color='black', bg=None, style='normal', end='\n'):
             -> white, black, red, green, yellow, blue, purple, cyan, pink, brown, lime, orange, gray.
     '''
     cprint(text, color, bg, style, end)
+
+def cWarn(text):
+    '''
+        Print text in warning format.
+            -> color=(238, 243, 81), bg=(243, 109, 95), style='bold'
+    '''
+
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    line = frame.lineno
+    filename = module.__file__
+
+    text = '{0}: {1}\n \t-> {2}'.format(filename, line, text)
+    cprint(txt=text, color=(238, 243, 81), bg=(243, 109, 95), style='bold')
