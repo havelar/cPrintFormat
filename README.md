@@ -2,7 +2,7 @@
 
 Some cool examples at 'example.py'.
 
-to install on pip `pip install -i https://test.pypi.org/simple/ cPrintFormat`.
+to install on pip `pip install -i https://test.pypi.org/simple/ cPrintFormat`
 
 Function and class to easy print colored.
 
