@@ -9,4 +9,3 @@ class cPrintClass:
 
     def print_format(self, text):
         cprint(text, color=self.__color, bg=self.__bg, style=self.__style, end=self.__end)
-        

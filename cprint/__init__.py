@@ -1,7 +1,9 @@
-import inspect
+import inspect, re, json
 
 from .cPrint import cprint
 from .cClass import cPrintClass
+
+indent_json = lambda _json: json.dumps(_json, indent=4, sort_keys=True)
 
 def cClass(color='black', bg=None, style='normal', end='\n'):
     '''
@@ -21,7 +23,8 @@ def cClass(color='black', bg=None, style='normal', end='\n'):
     '''
     return cPrintClass(color, bg, style, end).print_format
 
-def cPrint(text, color='black', bg=None, style='normal', end='\n'):
+#pattern = re.compile(r'\(\{(.*?)\}\)')
+def cPrint(text, color='black', bg=None, style='normal', end='\n', start=None):
     '''
         Print text with setted format.
 
@@ -39,18 +42,61 @@ def cPrint(text, color='black', bg=None, style='normal', end='\n'):
         -> Pre programmed colors:
             -> white, black, red, green, yellow, blue, purple, cyan, pink, brown, lime, orange, gray.
     '''
+    if not start is None:
+        cprint(start, color, bg, style, end='')
+    
     cprint(text, color, bg, style, end)
 
-def cWarn(text):
+
+
+############################ Warning Formats ############################
+
+def cSuccess(text):
     '''
-        Print text in warning format.
-            -> color=(238, 243, 81), bg=(243, 109, 95), style='bold'
+        Print text in success format.
     '''
 
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
-    line = frame.lineno
-    filename = module.__file__
 
-    text = '{0}: {1}\n \t-> {2}'.format(filename, line, text)
-    cprint(txt=text, color=(238, 243, 81), bg=(243, 109, 95), style='bold')
+    filename = module.__file__
+    line = frame.lineno
+
+    file_text = ' Success at {0}: {1} '.format(filename, line)
+    cPrint(text=file_text, color=(17, 70, 29), bg=(96, 222, 125), style='bold')
+
+    cPrint(start = '\t-> ', text=text, color=(63, 125, 78), style='bold')
+
+
+def cError(text):
+    '''
+        Print text in error format.
+    '''
+
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+
+    filename = module.__file__
+    line = frame.lineno
+
+    file_text = ' Error at {0}: {1} '.format(filename, line)
+    cPrint(text=file_text, color=(110, 0, 0), bg=(255, 50, 50), style='bold')
+
+    cPrint(start = '\t-> ', text=text, color=(229, 42, 42), style='bold')
+
+
+def cWarn(text):
+    '''
+        Print text in warning format.
+    '''
+
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+
+    filename = module.__file__
+    line = frame.lineno
+
+    file_text = ' Warning at {0}: {1} '.format(filename, line)
+    cPrint(text=file_text, color=(40, 40, 40), bg=(238, 243, 81), style='bold')
+
+    cPrint(start = '\t-> ', text=text, color=(205, 222, 96), style='bold')

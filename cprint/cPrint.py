@@ -4,7 +4,7 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n'):
         
     # Font Color process
     if isinstance(color,str):
-        rgb = cFormat.colors.get(color)
+        rgb = cFormat.colors.get(color.lower())
         if rgb is None:
             raise ValueError('Unkown color.')
     elif isinstance(color,tuple) and len(color)==3:
@@ -16,7 +16,7 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n'):
     # BackGround process
     if bg:
         if isinstance(bg,str):
-            bg_rgb = cFormat.colors.get(bg)
+            bg_rgb = cFormat.colors.get(bg.lower())
             if bg_rgb is None:
                 raise ValueError('Unkown color.')
         elif isinstance(bg,tuple) and len(bg)==3:
