@@ -82,10 +82,10 @@ def cError(text):
     if not module is None:
         filename = module.__file__
         line = frame.lineno
+        file_text = ' Error at {0}: {1} '.format(filename, line)
     else:
         file_text = 'Error !'
 
-    file_text = ' Error at {0}: {1} '.format(filename, line)
     cPrint(text=file_text, color=(110, 0, 0), bg=(255, 50, 50), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(229, 42, 42), style='bold')
@@ -102,10 +102,10 @@ def cWarn(text):
     if not module is None:
         filename = module.__file__
         line = frame.lineno
+        file_text = ' Warning at {0}: {1} '.format(filename, line)
     else:
         file_text = 'Warning !'
 
-    file_text = ' Warning at {0}: {1} '.format(filename, line)
     cPrint(text=file_text, color=(40, 40, 40), bg=(238, 243, 81), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(205, 222, 96), style='bold')

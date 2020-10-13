@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cPrintFormat",
-    version="0.1.2",
+    version="0.1.3",
     author="Henrique Avelar Amaral",
     author_email="henrique200297@gmail.com",
     description="Function and Class to easy print colored.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/havelar/cprint",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
