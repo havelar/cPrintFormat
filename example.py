@@ -18,6 +18,6 @@ blue('Amaral')
 ############# Easy Success / Warning / Error printing #############
 from cprint import cWarn, cSuccess, cError
 
-cError('THIS SHOULD NEVER HAPPEN!!')
+cSuccess('Worked.')
 cWarn('Might not work, idk yet...')
-cSuccess('Deu certo!')
+cError('This is an error !!')

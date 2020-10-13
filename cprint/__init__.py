@@ -59,10 +59,13 @@ def cSuccess(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    filename = module.__file__
-    line = frame.lineno
+    if not module is None:
+        filename = module.__file__
+        line = frame.lineno
 
-    file_text = ' Success at {0}: {1} '.format(filename, line)
+        file_text = ' Success at {0}: {1} '.format(filename, line)
+    else:
+        file_text = 'Success !'
     cPrint(text=file_text, color=(17, 70, 29), bg=(96, 222, 125), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(63, 125, 78), style='bold')
@@ -76,8 +79,11 @@ def cError(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    filename = module.__file__
-    line = frame.lineno
+    if not module is None:
+        filename = module.__file__
+        line = frame.lineno
+    else:
+        file_text = 'Error !'
 
     file_text = ' Error at {0}: {1} '.format(filename, line)
     cPrint(text=file_text, color=(110, 0, 0), bg=(255, 50, 50), style='bold')
@@ -93,8 +99,11 @@ def cWarn(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    filename = module.__file__
-    line = frame.lineno
+    if not module is None:
+        filename = module.__file__
+        line = frame.lineno
+    else:
+        file_text = 'Warning !'
 
     file_text = ' Warning at {0}: {1} '.format(filename, line)
     cPrint(text=file_text, color=(40, 40, 40), bg=(238, 243, 81), style='bold')

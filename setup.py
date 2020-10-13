@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cPrintFormat",
-    version="0.1",
+    version="0.1.2",
     author="Henrique Avelar Amaral",
     author_email="henrique200297@gmail.com",
     description="Function and Class to easy print colored.",
