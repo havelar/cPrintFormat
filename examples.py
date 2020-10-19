@@ -2,7 +2,7 @@
 from cprint import cPrint
 
 cPrint('Henrique em vermelho', 'red')
-cPrint('Avelar Bold Blue', 'blue', style='bold')
+cPrint('Avelar Bold Blue', 'blue', style='underline')
 cPrint('Amaral subline', 'pink', style='bold')
     
 ############# Save format to be used anywhere #############

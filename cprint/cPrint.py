@@ -12,7 +12,7 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n', returning=Fals
     else:
         raise ValueError('Color must be string or (R,G,B). Not: {0}'.format(type(color)))
     
-    curr_style = cFormat.styles.get(style)
+    curr_style = cFormat.styles.get(style.lower())
     if curr_style is None:
         raise ValueError("Invalid style value: '{0}' with type '{1}'".format(curr_style, type(curr_style)))
     prefix = cFormat.font_structure.format(*rgb, curr_style)
