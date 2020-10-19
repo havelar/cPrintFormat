@@ -24,4 +24,4 @@ $ pip install -i https://test.pypi.org/simple/ cPrintFormat
 
 License
 ----
-MIT
+MIT (Free)

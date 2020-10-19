@@ -3,6 +3,7 @@ import inspect
 from .cPrint import cprint
 from .cClass import cPrintClass
 
+############################ Printing Text ############################
 def cClass(color='black', bg=None, style='normal', end='\n'):
     '''
         Return a function to print with setted format.
@@ -47,7 +48,6 @@ def cPrint(text, color='black', bg=None, style='normal', end='\n', start=None):
 
 
 ############################ Warning Formats ############################
-
 def cSuccess(text):
     '''
         Print text in success format.
@@ -62,11 +62,10 @@ def cSuccess(text):
 
         file_text = ' Success at {0}: {1} '.format(filename, line)
     else:
-        file_text = 'Success !'
+        file_text = ' Success ! '
     cPrint(text=file_text, color=(17, 70, 29), bg=(96, 222, 125), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(63, 125, 78), style='bold')
-
 
 def cError(text):
     '''
@@ -81,12 +80,11 @@ def cError(text):
         line = frame.lineno
         file_text = ' Error at {0}: {1} '.format(filename, line)
     else:
-        file_text = 'Error !'
+        file_text = ' Error ! '
 
     cPrint(text=file_text, color=(110, 0, 0), bg=(255, 50, 50), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(229, 42, 42), style='bold')
-
 
 def cWarn(text):
     '''
@@ -101,7 +99,7 @@ def cWarn(text):
         line = frame.lineno
         file_text = ' Warning at {0}: {1} '.format(filename, line)
     else:
-        file_text = 'Warning !'
+        file_text = ' Warning ! '
 
     cPrint(text=file_text, color=(40, 40, 40), bg=(238, 243, 81), style='bold')
 
@@ -109,7 +107,6 @@ def cWarn(text):
 
 
 ############################ Script Formats ############################
-
 def cScript(script, color='gray', bg=None, style='normal'):
     '''
         Print formated Scripts with line numbered.
@@ -126,7 +123,6 @@ def cScript(script, color='gray', bg=None, style='normal'):
 
 
 ############################ Multi Color ############################
-
 def cColor(text, color='black', bg=None, style='normal'):
     '''
         Kind same as cPrint, but instead of printing, text is returned so can be appended at other strings
