@@ -26,6 +26,5 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n'):
     if bg:
         prefix = prefix + cFormat.bg_structure.format(*bg_rgb)
 
-    
     string = prefix + str(txt) + cFormat.end
     print(string, end=end)

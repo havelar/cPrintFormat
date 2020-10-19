@@ -21,3 +21,9 @@ from cprint import cWarn, cSuccess, cError
 cSuccess('Worked.')
 cWarn('Might not work, idk yet...')
 cError('This is an error !!')
+
+############# Printing Script #############
+from cprint import cScript
+
+script = "<script>\n$(document).ready(function() {\n  let src  = parseInt('{URLPARAMETERS_source}');\n  if (src == '0') {\n    $('input.text:visible').val('Offerwise');\n  } else {\n    $('input.text:visible').val('Unkown source.');\n  }\n  $('#movenextbtn').click();\n});\n</script>"
+cScript(script, 'black', 'gray', style='bold')

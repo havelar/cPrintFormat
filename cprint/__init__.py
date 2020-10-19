@@ -1,9 +1,7 @@
-import inspect, re, json
+import inspect
 
 from .cPrint import cprint
 from .cClass import cPrintClass
-
-indent_json = lambda _json: json.dumps(_json, indent=4, sort_keys=True)
 
 def cClass(color='black', bg=None, style='normal', end='\n'):
     '''
@@ -23,7 +21,6 @@ def cClass(color='black', bg=None, style='normal', end='\n'):
     '''
     return cPrintClass(color, bg, style, end).print_format
 
-#pattern = re.compile(r'\(\{(.*?)\}\)')
 def cPrint(text, color='black', bg=None, style='normal', end='\n', start=None):
     '''
         Print text with setted format.
@@ -59,7 +56,7 @@ def cSuccess(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    if not module is None:
+    if not module is None: # In some cases like Notebook inspect cannot find where file is located.
         filename = module.__file__
         line = frame.lineno
 
@@ -79,7 +76,7 @@ def cError(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    if not module is None:
+    if not module is None: # In some cases like Notebook inspect cannot find where file is located.
         filename = module.__file__
         line = frame.lineno
         file_text = ' Error at {0}: {1} '.format(filename, line)
@@ -99,7 +96,7 @@ def cWarn(text):
     frame = inspect.stack()[1]
     module = inspect.getmodule(frame[0])
 
-    if not module is None:
+    if not module is None: # In some cases like Notebook inspect cannot find where file is located.
         filename = module.__file__
         line = frame.lineno
         file_text = ' Warning at {0}: {1} '.format(filename, line)
@@ -109,3 +106,18 @@ def cWarn(text):
     cPrint(text=file_text, color=(40, 40, 40), bg=(238, 243, 81), style='bold')
 
     cPrint(start = '\t-> ', text=text, color=(205, 222, 96), style='bold')
+
+
+############################ Script Formats ############################
+
+def cScript(script, color='gray', bg=None, style='normal'):
+    
+    script_lines = script.split('\n')
+    lenght = len(str(len(script_lines))) # Script lenght
+
+    for ind, line in enumerate(script_lines):
+        ind = str(ind) # Convert to STR
+        if len(ind) < lenght: # Code to add '0' so every line is same size
+            dec = lenght - len(ind) # Complete decimals
+            ind = (dec*'0') + str(ind) # 5 -> 005 if script len is > 100
+        cprint(ind + '-| ' + line, color, bg, style)
