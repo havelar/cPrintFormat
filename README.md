@@ -43,7 +43,7 @@ Available styles.
 | ------ | ------ |
 | Normal | example |
 | Bold | **example** |
-| Underline | <u>example<\u> |
+| Underline | <u>example</u> |
 | Inverse | Inverse BackGround with Color |
 
 ### Installation
