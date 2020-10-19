@@ -39,11 +39,11 @@ Pre-Programmed colors.
 
 Available styles.
 
-| Color | RGB |
+| Color | Style |
 | ------ | ------ |
 | Normal | example |
 | Bold | **example** |
-| Underline | ++example++ |
+| Underline | <u>example<\u> |
 | Inverse | Inverse BackGround with Color |
 
 ### Installation
