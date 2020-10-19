@@ -1,6 +1,6 @@
 from .src.cFormat import cFormat
 
-def cprint(txt, color='black', bg=None, style='normal', end='\n'):
+def cprint(txt, color='black', bg=None, style='normal', end='\n', returning=False):
         
     # Font Color process
     if isinstance(color,str):
@@ -10,8 +10,12 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n'):
     elif isinstance(color,tuple) and len(color)==3:
         rgb = color
     else:
-        raise ValueError('Color must be string or (R,G,B)')
-    prefix = cFormat.font_structure.format(*rgb, cFormat.styles[style])
+        raise ValueError('Color must be string or (R,G,B). Not: {0}'.format(type(color)))
+    
+    curr_style = cFormat.styles.get(style)
+    if curr_style is None:
+        raise ValueError("Invalid style value: '{0}' with type '{1}'".format(curr_style, type(curr_style)))
+    prefix = cFormat.font_structure.format(*rgb, curr_style)
 
     # BackGround process
     if bg:
@@ -27,4 +31,8 @@ def cprint(txt, color='black', bg=None, style='normal', end='\n'):
         prefix = prefix + cFormat.bg_structure.format(*bg_rgb)
 
     string = prefix + str(txt) + cFormat.end
-    print(string, end=end)
+
+    if returning: # Return formated string to be used anywhere
+        return string
+    else: # Just print
+        print(string, end=end)

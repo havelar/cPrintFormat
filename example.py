@@ -1,9 +1,9 @@
 ############# Simple printing #############
 from cprint import cPrint
 
-cPrint('Henrique ', 'red', end='')
-cPrint('Avelar ', 'blue', end='')
-cPrint('Amaral', 'pink')
+cPrint('Henrique em vermelho', 'red')
+cPrint('Avelar Bold Blue', 'blue', style='bold')
+cPrint('Amaral subline', 'pink', style='bold')
     
 ############# Save format to be used anywhere #############
 from cprint import cClass
@@ -27,3 +27,8 @@ from cprint import cScript
 
 script = "<script>\n$(document).ready(function() {\n  let src  = parseInt('{URLPARAMETERS_source}');\n  if (src == '0') {\n    $('input.text:visible').val('Offerwise');\n  } else {\n    $('input.text:visible').val('Unkown source.');\n  }\n  $('#movenextbtn').click();\n});\n</script>"
 cScript(script, 'black', 'gray', style='bold')
+
+############# Multi Colored #############
+from cprint import cColor
+
+print(cColor('Henrique','red', style='bold') +'-'+ cColor('Avelar', 'green', style='bold') +'-'+ cColor('Amaral', 'blue', style='bold'))
