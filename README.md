@@ -50,7 +50,7 @@ Available styles.
 
 cPrintFormat requires [Python 3.6](https://www.python.org/)
 
-Installation can be done with PyPi. Still on [Test PyPi](https://test.pypi.org/)
+Installation can be done with PyPi. Still on [Test PyPi](https://test.pypi.org/project/cPrintFormat/)
 
 ```sh
 $ pip install -i https://test.pypi.org/simple/ cPrintFormat
